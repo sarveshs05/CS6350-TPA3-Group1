@@ -1,5 +1,3 @@
-Based on the provided description and code, I'll create a detailed README file for your project. This README will include sections such as the project overview, installation, usage, and acknowledgments. 
-
 ### **README.md**
 
 ---
