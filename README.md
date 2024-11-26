@@ -103,45 +103,45 @@ class ConcatHead(nn.Module):
 
 
 ## **Usage**
-1. **Unzipping Files**  
-   Unzip the provided datasets (`stationaryaug.zip` and `ultralytics.zip`) and code:
+1. **Unzipping Files**
+   - Unzip the provided datasets (`stationaryaug.zip` and `ultralytics.zip`) and code:
    ```bash
    !unzip /content/drive/MyDrive/YOLOV8++/ultralytics.zip -d /content/
    !unzip /content/drive/MyDrive/YOLOV8++/stationaryaug.zip -d /content/
    ```
 
-2. **Load Pretrained Model**
+3. **Load Pretrained Model**
    ```python
    from ultralytics import YOLO
    model = YOLO("yolov8x.pt")  # Load a pretrained YOLOv8 model
    ```
 
-3. **Finetune the Model**
-   (Not necessary as the pre-trained model is provided.)
-   use the yaml file of stationary data
+4. **Finetune the Model** (Not necessary as the pre-trained model is provided.)
+   - use the yaml file of stationary data
    ```python
    results = model.train(data='/content/stationary/data.yaml', freeze=22, epochs=100, imgsz=640)
    ```
 
-5. **Load Finetuned Model**
-   use `100epochsbest.pt`
+6. **Load Finetuned Model**
+   - use `100epochsbest.pt`
    ```python
    model = YOLO("/content/drive/MyDrive/YOLOV8++/100epochsbest.pt")
    ```
 
-7. **Add Additional Head**
+8. **Add Additional Head**
+   - use yolo8x-2xhead.yaml file (updated yaml file)
    ```python
    state_dict = torch.load("yolov8xfin.pth")
    model_2 = YOLO('ultralytics/cfg/models/v8/yolov8x-2xhead.yaml', task="detect").load('yolov8x.pt')
    model_2.load_state_dict(state_dict, strict=False)
    ```
 
-8. **Run Predictions**
+10. **Run Predictions**
    ```python
    result_merged = model_2.predict(test_image)[0]
    ```
 
-9. **Visualize Results**
+11. **Visualize Results**
    ```python
    show_output([result_coco.plot(), result_custom.plot(), result_merged.plot()])
    ```
