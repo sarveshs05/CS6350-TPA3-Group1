@@ -30,7 +30,7 @@ The project introduces an additional head to the YOLOv8 architecture for improve
 
 ### **Ultralytics Source Code**
 - Ultralytics github was cloned and necessary changes were made in its architecture to add an extra head. All the edits have been added to `ultralytics.zip`
-- The model has been trained on custom dataset for 100 epochs using Kaggle GPU P100 (no need to train again as it might consume a lot of time) and the best.pt has been uploaded in the drive `100epochsbest.pt`.
+- The model has been trained on custom dataset for 100 epochs using Kaggle GPU P100 (no need to train again as it might consume a lot of time) and the best.pt has been uploaded in the drive `100epochsbest.pt`.This compiled code has been run on Google Colab T4 GPU.
 
 major changes in ultralytics.zip -
 1. the yaml file was edited and an extra head was added - ultralytics/ultralytics/cfg/models/v8/yolov8x-2xhead.yaml
